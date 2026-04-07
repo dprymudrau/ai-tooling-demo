@@ -14,6 +14,13 @@ This repository contains web tests automation of ecommerce application
     - `resources` - contains TestNG xml files, API templates and XLS/CSV data providers, etc.
 - `pom.xml` - Maven configuration file with dependencies
 
+## Folders to ignore
+The following folders are not provide any context so should be ignored:
+- `.idea'
+- `reports`
+- `target`
+- `.git`
+
 # Web Automation on Carina
 Carina framework follows Selenium best practices for web test automation. If you are familiar with Selenium WebDriver
 and have already implemented a few tests with the Page Object Pattern, the following guide will be much easier for
