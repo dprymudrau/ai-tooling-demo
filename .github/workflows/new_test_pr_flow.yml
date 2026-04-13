@@ -7,8 +7,14 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
-      action-info:
-        description: "Contains json of data to be used in the action"
+      branch:
+        description: "Source branch to create PR from"
+        required: true
+      title:
+        description: "Pull request title"
+        required: true
+      body:
+        description: "Pull request body"
         required: true
 
 jobs:
@@ -16,18 +22,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Pull Request
-          uses: peter-evans/create-pull-request@v8.1.0
-          with:
-            branch: ${{ github.event.inputs.action-info.branch }}
-            base: main
-            title: ${{ github.event.inputs.action-info.title }}
-            body: ${{ github.event.inputs.action-info.body }}
-            labels: ai-generated-tests
-            committer: GitHub <noreply@github.com>
-            author: github-actions <github-actions@github.com>
-            signoff: false
-            delete-branch: false
-            draft: false
-            token: ${{ secrets.PAT_TOKEN }}
-
-
+        uses: peter-evans/create-pull-request@v8.1.0
+        with:
+          branch: ${{ github.event.inputs.branch }}
+          base: main
+          title: ${{ github.event.inputs.title }}
+          body: ${{ github.event.inputs.body }}
+          labels: ai-generated-tests
+          committer: GitHub <noreply@github.com>
+          author: github-actions <github-actions@github.com>
+          signoff: false
+          delete-branch: false
+          draft: false
+          token: ${{ secrets.PAT_TOKEN }}
