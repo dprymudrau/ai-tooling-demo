@@ -7,9 +7,6 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: "Source branch to create PR from"
-        required: true
       title:
         description: "Pull request title"
         required: true
@@ -24,10 +21,14 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8.1.0
         with:
-          branch: ${{ github.event.inputs.branch }}
+          branch: ${{ github.ref_name }}
           base: main
           title: ${{ github.event.inputs.title }}
           body: ${{ github.event.inputs.body }}
