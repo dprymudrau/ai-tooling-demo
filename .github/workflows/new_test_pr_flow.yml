@@ -16,6 +16,9 @@ on:
       body:
         description: "Pull request body"
         required: true
+      action-info:
+        description: "Optional metadata passed by the triggering action"
+        required: false
 
 jobs:
   create-pr:
