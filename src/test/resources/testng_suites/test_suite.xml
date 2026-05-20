@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="Under Armour Web Tests" parallel="methods">
+    <test name="Login Page UI Tests">
+        <classes>
+            <class name="com.solvd.demo.LoginPageUITest"/>
+        </classes>
+    </test>
+</suite>
