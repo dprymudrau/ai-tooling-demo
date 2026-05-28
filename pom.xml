@@ -40,6 +40,14 @@
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-api</artifactId>
             <version>${carina-api.version}</version>
+            <exclusions>
+                <!-- Excluded so that com.sun.mail:javax.mail (which we add explicitly)
+                     provides both API and impl without a class clash on com.sun.mail.util.* -->
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mailapi</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.zebrunner</groupId>
@@ -89,6 +97,13 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.5</version>
+        </dependency>
+        <!-- JavaMail implementation for IMAP inbox access; matches javax.mail:mailapi
+             already pulled in transitively by Carina -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
     </dependencies>
 
