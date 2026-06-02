@@ -25,7 +25,7 @@ public class BaseTest implements IAbstractTest {
         quitDriver();
 
         // 3. wait for the finalized file (brief flush delay after quit)
-        File video = new File("./videos/" + sessionId + ".mp4");
+        File video = new File(System.getProperty("user.dir"), "../videos/" + sessionId + ".mp4");
         for (int i = 0; i < 20 && (!video.exists() || video.length() == 0); i++) {
             try { Thread.sleep(500); } catch (InterruptedException ignored) { Thread.currentThread().interrupt(); }
         }
