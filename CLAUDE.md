@@ -26,6 +26,9 @@ Carina framework follows Selenium best practices for web test automation. If you
 and have already implemented a few tests with the Page Object Pattern, the following guide will be much easier for
 understanding.
 
+# IMPORTANT
+    ALL TESTS SHOULD BE EXTENDED FROM BaseTest.java class as they need to use after method to upload video to reporting after execution
+
 ## Implementation of Page Objects
 When you are writing functional tests using Selenium, the major part of your code will consist of interactions with the
 web interface you are testing through the WebDriver API. After fetching elements, you will verify some state of an
