@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="Under Armour Web Tests" parallel="methods">
+    <test name="Successful login with valid registered email and correct password">
+        <classes>
+            <class name="com.solvd.demo.SuccessfulLoginWithValidCredentialsTest"/>
+        </classes>
+    </test>
+    <test name="Login with empty email and password shows validation errors">
+        <classes>
+            <class name="com.solvd.demo.EmptyCredentialsLoginValidationTest"/>
+        </classes>
+    </test>
+    <test name="Login with valid email and incorrect password shows error banner">
+        <classes>
+            <class name="com.solvd.demo.IncorrectPasswordLoginErrorTest"/>
+        </classes>
+    </test>
+</suite>
